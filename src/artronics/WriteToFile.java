@@ -11,8 +11,7 @@ public final class WriteToFile{
 
     private WriteToFile() {
     }
-
-    public static <T> write(T content) throws IOException {
+    public static <T> void write(T content) throws IOException {
 
         try {
             File data = new File("data.txt");
@@ -21,8 +20,8 @@ public final class WriteToFile{
             writer.write(content.toString());
             writer.close();
         } catch (IOException e) {
-            System.out.println("An Error ocured during writing file.");
-            e.printStackTrace();
+            System.out.println("An Error ocured during writing file.\n");
+//            e.printStackTrace();
         }
     }
 

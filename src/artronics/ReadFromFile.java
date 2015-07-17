@@ -1,8 +1,8 @@
 package artronics;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -19,14 +19,22 @@ public final class ReadFromFile
 
     public static int Read(String path) throws IOException
     {
+        int value=20;
         try {
             Scanner in = new Scanner(new File(path));
-            int value = in.nextInt();
+            value = in.nextInt();
             in.close();
-            return value;
         } catch (IOException e) {
-            System.out.println("An Error ocured during reading file.");
-            e.printStackTrace();
+            System.out.println("An Error ocured during reading file.\n" +
+                    "If you are runnig this program for the" +
+                    " first time, first you have to set temperature.\n" +
+                    "Use this command for setting temperature:\n" +
+                    "java -jar Thermosmart --set <value-of-temperature>");
+            //e.printStackTrace();
+        }catch (InputMismatchException e){
+            System.out.println("Data in file \"data.tx\" is not valid.");
         }
+
+        return value;
     }
 }

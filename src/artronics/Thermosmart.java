@@ -11,10 +11,4 @@ public class Thermosmart implements Device
     {
         return null;
     }
-
-    @Override
-    public void SetValueApi(Api api)
-    {
-        Api api = new Api("Thermosmart --set");
-    }
 }

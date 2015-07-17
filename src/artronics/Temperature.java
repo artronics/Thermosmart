@@ -12,6 +12,14 @@ public class Temperature {
         this.value = value;
     }
 
+    public Temperature(String value) {
+        try {
+            this.value = Integer.parseInt(value);
+        } catch (NumberFormatException e) {
+            System.out.println("Temperature must be a number.");
+            e.printStackTrace();
+        }
+    }
     public Temperature() {
     }
 
